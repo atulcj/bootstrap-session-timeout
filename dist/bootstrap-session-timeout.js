@@ -106,7 +106,6 @@
                     mousePosition[0] = e.clientX;
                     mousePosition[1] = e.clientY;
                 }
-                startSessionTimer();
 
                 // If they moved the mouse not only reset the counter
                 // but remove the modal too!
@@ -119,6 +118,7 @@
                             $('body').removeClass('modal-open');
                             $('div.modal-backdrop').remove();
                         }
+                        startSessionTimer();
                     }
                 }
             });
