@@ -125,22 +125,20 @@
         }
 
         // Keeps the server side connection live, by pingin url set in keepAliveUrl option.
-        // KeepAlivePinged is a helper var to ensure the functionality of the keepAliveInterval option
-        var keepAlivePinged = false;
-
         function keepAlive() {
-            if (!keepAlivePinged) {
+            setTimeout(function () {
                 // Ping keepalive URL using (if provided) data and type from options
                 $.ajax({
                     type: opt.ajaxType,
                     url: opt.keepAliveUrl,
                     data: opt.ajaxData
                 });
-                keepAlivePinged = true;
-                setTimeout(function() {
-                    keepAlivePinged = false;
-                }, opt.keepAliveInterval);
-            }
+                
+                // Recall the parent function to
+                // create a recursive loop.
+                // http://stackoverflow.com/a/22154172
+                keepAlive();
+            }, opt.keepAliveInterval);
         }
 
         function startSessionTimer() {
@@ -152,11 +150,6 @@
 
             if (typeof opt.onStart === 'function') {
                 opt.onStart(opt);
-            }
-
-            // If keepAlive option is set to "true", ping the "keepAliveUrl" url
-            if (opt.keepAlive) {
-                keepAlive();
             }
 
             // Set session timer
@@ -242,5 +235,9 @@
         // Start session timer
         startSessionTimer();
 
+        // If keepAlive option is set to "true", ping the "keepAliveUrl" url
+        if (opt.keepAlive) {
+            keepAlive();
+        }
     };
 })(jQuery);

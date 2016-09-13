@@ -70,7 +70,7 @@ Type: `Boolean`
 
 Default: `true`
 
-If `true`, the plugin keeps pinging the `keepAliveUrl` for as long as the user is active. The time between two pings is set by the `keepAliveInterval` option. If you have no server-side session timeout to worry about, feel free to set this one to `false` to prevent unnecessary network activity.
+If `true`, the plugin keeps pinging the `keepAliveUrl` for as long as specified in `redirAfter`. The time between two pings is set by the `keepAliveInterval` option. If you have no server-side session timeout to worry about, feel free to set this one to `false` to prevent unnecessary network activity.
 
 **keepAliveInterval**
 
