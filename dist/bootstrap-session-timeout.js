@@ -56,7 +56,7 @@
                 '<p>' + opt.countdownMessage.replace(/{timer}/g, '<span class="countdown-holder"></span>') + '</p>' : '';
             var coundownBarHtml = opt.countdownBar ?
                 '<div class="progress"> \
-                  <div class="progress-bar progress-bar-striped countdown-bar active" role="progressbar" style="min-width: 15px; width: 100%;"> \
+                  <div class="progress-bar progress-bar-striped countdown-bar progress-bar-animated" role="progressbar" style="min-width: 15px; width: 100%;"> \
                     <span class="countdown-holder"></span> \
                   </div> \
                 </div>' : '';
@@ -66,8 +66,8 @@
               <div class="modal-dialog"> \
                 <div class="modal-content"> \
                   <div class="modal-header"> \
+                    <h5 class="modal-title" id="session_timeout_header">' + opt.title + '</h5> \
                     <button type="button" class="close" data-dismiss="modal">&times;</button> \
-                    <h1 class="modal-title" id="session_timeout_header">' + opt.title + '</h1> \
                   </div> \
                   <div class="modal-body"> \
                     <p>' + opt.message + '</p> \
@@ -75,7 +75,7 @@
                     ' + coundownBarHtml + ' \
                   </div> \
                   <div class="modal-footer"> \
-                    <button id="session-timeout-dialog-logout" type="button" class="btn btn-default">' + opt.logoutButton + '</button> \
+                    <button id="session-timeout-dialog-logout" type="button" class="btn btn-secondary">' + opt.logoutButton + '</button> \
                     <button id="session-timeout-dialog-keepalive" type="button" class="btn btn-primary" data-dismiss="modal">' + opt.keepAliveButton + '</button> \
                   </div> \
                 </div> \
