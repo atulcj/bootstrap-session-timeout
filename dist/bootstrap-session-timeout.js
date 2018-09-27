@@ -1,7 +1,7 @@
 /*
  * bootstrap-session-timeout
  * www.orangehilldev.com
- *
+ * 
  * Copyright (c) 2014 Vedran Opacic
  * Licensed under the MIT license.
  */
