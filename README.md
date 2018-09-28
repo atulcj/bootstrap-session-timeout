@@ -196,6 +196,14 @@ Default: `false`
 
 Optional callback to make the Bootsrap warning dialog/Modal hide on any action.  WARNING: If set to true, accessibility technology users will have less than optimal experience. 
 
+**hideButtons**
+
+Type: `Boolean`
+
+Default: `false`
+
+Disable action buttons
+
 ## Examples
 
 You can play around with the examples in the `/examples` directory.

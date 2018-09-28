@@ -1,7 +1,7 @@
 /*
  * bootstrap-session-timeout
  * www.orangehilldev.com
- * 
+ *
  * Copyright (c) 2014 Vedran Opacic
  * Licensed under the MIT license.
  */
@@ -31,7 +31,8 @@
             countdownMessage: false,
             countdownBar: false,
             countdownSmart: false,
-            hideModalOnAction: false
+            hideModalOnAction: false,
+            hideButtons: false
         };
 
         var opt = defaults,
@@ -62,7 +63,8 @@
                 </div>' : '';
 
             // Create timeout warning dialog
-            $('body').append('<div class="modal fade" id="session-timeout-dialog" role="alertdialog" aria-labelledby="session_timeout_header" tabindex="-1" > \
+            var warningText =
+            '<div class="modal fade" id="session-timeout-dialog" role="alertdialog" aria-labelledby="session_timeout_header" tabindex="-1" > \
               <div class="modal-dialog"> \
                 <div class="modal-content"> \
                   <div class="modal-header"> \
@@ -73,14 +75,19 @@
                     <p>' + opt.message + '</p> \
                     ' + countdownMessage + ' \
                     ' + coundownBarHtml + ' \
-                  </div> \
+                  </div>';
+            if(!opt.hideButtons){
+              warningText += ' \
                   <div class="modal-footer"> \
                     <button id="session-timeout-dialog-logout" type="button" class="btn btn-secondary">' + opt.logoutButton + '</button> \
                     <button id="session-timeout-dialog-keepalive" type="button" class="btn btn-primary" data-dismiss="modal">' + opt.keepAliveButton + '</button> \
+                  </div>';
+            }
+            warningText += ' \
                   </div> \
                 </div> \
-              </div> \
-             </div>');
+              </div>';
+            $('body').append(warningText);
 
             // "Logout" button click
             $('#session-timeout-dialog-logout').on('click', function() {
