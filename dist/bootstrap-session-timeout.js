@@ -89,6 +89,9 @@
               </div>';
             $('body').append(warningText);
 
+            // Make sure dialog contains BS Modal data.
+            $('#session-timeout-dialog').modal('hide');
+
             // "Logout" button click
             $('#session-timeout-dialog-logout').on('click', function() {
                 window.location = opt.logoutUrl;
